@@ -80,10 +80,43 @@
 
 .Header1 {
   display: flex;
-  flex-direction: row;
-  justify-content: center;
   align-items: center;
-  width: 1447px;
+  min-width: 1447px;
   height: 160.43px;
   top: 222.79px;
+  background-color: #f8f9fa;
+}
+.Header1A {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 1322.81px;
+  height: 127.34px;
+  top: 239.33px;
+  left: 62.05px;
+  padding: 0px, 0px, 0px, 0px;
+}
+.Header1CardDiv {
+  display: flex;
+  width: 420.65px;
+  height: 127.34px;
+  top: 239.33px;
+  left: 964.21px;
+}
+
+.Header2 {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 1378.19px;
+  height: 809px;
+  top: 423.23px;
+  left: 36.21px;
+  padding: 20px;
+}
+.Header2Div1.Header2Div2.Header2Div3 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }

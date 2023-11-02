@@ -7,55 +7,106 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-import { CardActionArea } from "@mui/material";
+import { Box, CardActionArea } from "@mui/material";
 
 const Header1 = () => {
-  // const CardData = [{ image:''}]
+  const CardData = [
+    {
+      id: 1,
+      imageSrc: img1,
+      title: "HOTSPOT",
+      description: "Luxury hotspots: 5 most expensive high streets in the..",
+    },
+    {
+      id: 2,
+      imageSrc: img2,
+      title: "AI",
+      description: "5 ways to leverage the power of ChatGPT in retail",
+    },
+    {
+      id: 3,
+      imageSrc: img3,
+      title: "SHIPPING",
+      description: "Reliance to open 250 Azorte stores in 2-3 years",
+    },
+  ];
   return (
     <div className="Header1">
+      <div className="Header1A">
+        {CardData.map((data) => (
+          <Header1Card data={data} />
+        ))}
+      </div>
+    </div>
+  );
+};
+
+const Header1Card = ({ data }) => {
+  return (
+    <div className="Header1CardDiv">
       <Card
         sx={{
-          maxWidth: 420.65,
-          height: 127.34,
+          maxWidth: 410.48,
+          height: 90.67,
+          top: 257.67,
+          left: 974.12,
+          // borderRadius: 6.01,
           display: "flex",
           flexDirection: "row",
+          alignItems: "center",
         }}
       >
-        <CardActionArea>
-          <div>
-            <CardMedia
-              sx={{ width: 117, height: 96.55 }}
-              image={img2}
-            ></CardMedia>
-          </div>
-          <div>
-            <CardContent>
-              <Typography>Hotspot</Typography>
-              <Typography>
-                Luxury hotspots: 5 most expensive high streets in the..
-              </Typography>
-            </CardContent>
-          </div>
-        </CardActionArea>
+        <CardMedia
+          component="img"
+          sx={{
+            width: 117,
+            height: 96.55,
+            top: 254.72,
+            left: 68.95,
+            // borderRadius: 5.65,
+          }}
+          image={data.imageSrc}
+          alt="Image"
+        />
+        <CardContent
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+
+            marginRight: "auto",
+            width: 251.46,
+            height: 55.1,
+            top: 275.42,
+            left: 649.87,
+          }}
+        >
+          <Box>
+            <Typography
+              sx={{
+                color: "#E21B22",
+                fontFamily: "roboto",
+                fontWeight: 600,
+                fontSize: 14.69,
+              }}
+              component="div"
+            >
+              {data.title}
+            </Typography>
+            <Typography
+              sx={{
+                color: "#000000",
+                fontFamily: "inter",
+                fontWeight: 400,
+                fontSize: 16.27,
+              }}
+            >
+              {data.description}
+            </Typography>
+          </Box>
+        </CardContent>
       </Card>
     </div>
   );
 };
 
 export default Header1;
-
-const Header1Card = ({ data }) => {
-  return (
-    <Card>
-      <div>
-        <CardMedia></CardMedia>
-      </div>
-      <div>
-        <CardContent>
-          <Typography></Typography>
-          <Typography></Typography>
-        </CardContent>
-      </div>
-    </Card>
-  );
-};
