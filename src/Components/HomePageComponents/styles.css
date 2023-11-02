@@ -119,3 +119,18 @@
   display: flex;
   flex-direction: column;
 }
+/* .Header1CardDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+} */
+
+.LatestNews2ndCardDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  width: 304.58px;
+  height: 85.1px;
+  top: 980.19px;
+  left: 680.29px;
+}

@@ -4,13 +4,14 @@ import MainImage from "../../Images/Link ⏵ Figure ⏵ 169731-rbmaxpyfhd-164406
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
-import { Box, Button, Typography } from "@mui/material";
+import { Box, Button, Divider, Typography } from "@mui/material";
 import img1 from "../../Images/image 34.png";
 import img2 from "../../Images/image 34 (1).png";
 import img3 from "../../Images/image 34 (2).png";
 import adsImg from "../../Images/image 41.png";
 import LatestNewsImg1 from "../../Images/image 27.png";
-import LatestNewsImg2 from "../../Images/Link ⏵ Picture ⏵ PTI06_03_2023_000017A%20(1).jpg.png";
+import LatestNewsImg2 from "../../Images/LatestNews2.png";
+import RemoveIcon from "@mui/icons-material/Remove";
 
 const Header2 = () => {
   const CardData = [
@@ -47,7 +48,7 @@ const Header2 = () => {
       title: "Unwrapping the Archies’ reinvention plan",
     },
     {
-      id: 1,
+      id: 2,
       imageSrc: LatestNewsImg2,
       title: "How AI is enhancing stores, How AI is enhancing stores",
     },
@@ -143,10 +144,72 @@ const Header2 = () => {
         >
           Latest News
         </Typography>
+        <RemoveIcon sx={{ color: "#CC0000" }} />
         {LatestNewsData.map((data) => (
           <LatestNewsCard data={data} />
         ))}
+        <div>
+          <Divider sx={{ paddingTop: 1 }} />
+          <div className="LatestNews2ndCardDiv">
+            <Typography
+              sx={{
+                width: 304.58,
+                fontFamily: "Inter",
+                fontWeight: 400,
+                fontSize: 15,
+                paddingTop: 1,
+                // height: 36,
+                // top: 980.19,
+                // left: 680.29,
+              }}
+            >
+              Croma opens 58 outlets in 6, Croma retails more than 16,000
+            </Typography>
+            <Typography
+              sx={{
+                width: 304.58,
+                color: "#666666",
+                fontSize: "Inter",
+                fontSize: "13.97",
+                fontWeight: 400,
+              }}
+            >
+              These companies created a lot of hype when they listed on the...
+            </Typography>
+          </div>
+        </div>
+        <div>
+          <Divider sx={{ paddingTop: 1, marginTop: 1 }} />
+          <div className="LatestNews2ndCardDiv">
+            <Typography
+              sx={{
+                width: 304.58,
+                fontFamily: "Inter",
+                fontWeight: 400,
+                fontSize: 15,
+                paddingTop: 1,
+                // height: 36,
+                // top: 980.19,
+                // left: 680.29,
+              }}
+            >
+              Select Citywalk opens 4 new stores in June
+            </Typography>
+            <Typography
+              sx={{
+                width: 304.58,
+                color: "#666666",
+                fontSize: "Inter",
+                fontSize: "13.97",
+                fontWeight: 400,
+              }}
+            >
+              These companies created a lot of hype when they listed on the...
+            </Typography>
+          </div>
+        </div>
       </div>
+
       <div className="Header2Div3">
         <Typography sx={{ display: "flex", justifyContent: "center" }}>
           - Advertisement -
@@ -227,7 +290,7 @@ const Header2Card = ({ data }) => {
 
 const LatestNewsCard = ({ data }) => {
   return (
-    <div className="Header1CardDiv">
+    <div className="Header2CardDiv">
       <Card
         sx={{
           boxShadow: "none",
@@ -246,12 +309,12 @@ const LatestNewsCard = ({ data }) => {
             height: 184,
             top: 466.19,
             left: 680.21,
-            // borderRadius: 5.65,
+            borderRadius: 1.65,
           }}
           image={data.imageSrc}
           alt="Image"
         />
-        <CardContent>
+        <CardContent sx={{ padding: 0, lineHeight: 22 }}>
           <Typography
             sx={{ fontFamily: "Inter", fontWeight: 500, fontSize: 16.94 }}
           >
