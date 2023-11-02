@@ -9,6 +9,8 @@ import img1 from "../../Images/image 34.png";
 import img2 from "../../Images/image 34 (1).png";
 import img3 from "../../Images/image 34 (2).png";
 import adsImg from "../../Images/image 41.png";
+import LatestNewsImg1 from "../../Images/image 27.png";
+import LatestNewsImg2 from "../../Images/Link ⏵ Picture ⏵ PTI06_03_2023_000017A%20(1).jpg.png";
 
 const Header2 = () => {
   const CardData = [
@@ -36,6 +38,18 @@ const Header2 = () => {
       description: "FNP (Ferns N Petals) appoints Ashish Goels",
       type: "Citywalk",
       hashTag: "#reel stories podcast",
+    },
+  ];
+  const LatestNewsData = [
+    {
+      id: 1,
+      imageSrc: LatestNewsImg1,
+      title: "Unwrapping the Archies’ reinvention plan",
+    },
+    {
+      id: 1,
+      imageSrc: LatestNewsImg2,
+      title: "How AI is enhancing stores, How AI is enhancing stores",
     },
   ];
   return (
@@ -117,10 +131,26 @@ const Header2 = () => {
         </div>
       </div>
       <div className="Header2Div2">
-        <Typography>Latest News</Typography>
+        <Typography
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "flex-start",
+            fontFamily: "Roboto",
+            fontWeight: 500,
+            fontSize: 20.12,
+          }}
+        >
+          Latest News
+        </Typography>
+        {LatestNewsData.map((data) => (
+          <LatestNewsCard data={data} />
+        ))}
       </div>
       <div className="Header2Div3">
-        <Typography>- Advertisement -</Typography>
+        <Typography sx={{ display: "flex", justifyContent: "center" }}>
+          - Advertisement -
+        </Typography>
         <img src={adsImg}></img>
       </div>
     </div>
@@ -189,6 +219,44 @@ const Header2Card = ({ data }) => {
               {data.description}
             </Typography>
           </Box>
+        </CardContent>
+      </Card>
+    </div>
+  );
+};
+
+const LatestNewsCard = ({ data }) => {
+  return (
+    <div className="Header1CardDiv">
+      <Card
+        sx={{
+          boxShadow: "none",
+          width: 344.01,
+          height: 238,
+          top: 702.19,
+          left: 680.29,
+          display: "flex",
+          flexDirection: "column",
+        }}
+      >
+        <CardMedia
+          component="img"
+          sx={{
+            width: 343,
+            height: 184,
+            top: 466.19,
+            left: 680.21,
+            // borderRadius: 5.65,
+          }}
+          image={data.imageSrc}
+          alt="Image"
+        />
+        <CardContent>
+          <Typography
+            sx={{ fontFamily: "Inter", fontWeight: 500, fontSize: 16.94 }}
+          >
+            {data.title}
+          </Typography>
         </CardContent>
       </Card>
     </div>

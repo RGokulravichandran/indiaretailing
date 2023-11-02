@@ -108,6 +108,7 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: space-between;
   width: 1378.19px;
   height: 809px;
   top: 423.23px;
@@ -117,6 +118,4 @@
 .Header2Div1.Header2Div2.Header2Div3 {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
