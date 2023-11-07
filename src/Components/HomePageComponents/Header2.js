@@ -73,12 +73,12 @@ const Header2 = () => {
         <Card>
           <CardMedia
             sx={{
-              width: isMd ? "599px" : isXs ? "272.19px" : "420.65px",
+              width: isMd ? "599px" : isXs ? "400.19px" : "420.65px",
               // width: 599,
               height: 347,
               top: 423.23,
               left: 35.21,
-              objectFit: "cover",
+              objectFit: "contain",
               display: "flex",
               flexDirection: "column",
               justifyContent: "flex-end",
