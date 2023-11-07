@@ -1,16 +1,16 @@
 import * as React from "react";
-import "./styles.css";
 import { styled, alpha } from "@mui/material/styles";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
 import InputBase from "@mui/material/InputBase";
-import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
 import logo from "../../Images/logo.png";
-import { Button } from "@mui/material";
+import { Button, Card, CardMedia } from "@mui/material";
+import MenuIconImg from "../../Images/Vector.png";
+import MobViewSearchImg from "../../Images/MobViewSearchImg.png";
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -42,7 +42,6 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   color: "inherit",
   "& .MuiInputBase-input": {
     padding: theme.spacing(1, 1, 1, 0),
-    // vertical padding + font size from searchIcon
     paddingLeft: `calc(1em + ${theme.spacing(4)})`,
     transition: theme.transitions.create("width"),
     width: "100%",
@@ -56,90 +55,92 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 export default function SearchAppBar() {
+  const isMd = useMediaQuery("(min-width:600px)");
+  const isXs = useMediaQuery("(max-width:599px)");
+
   return (
-    // <Box sx={{ flexGrow: 1 }}>
-    <AppBar
-      position="static"
-      sx={{ backgroundColor: "white", boxShadow: "none" }}
-    >
-      {/* <Toolbar> */}
-      <div className="AppBar">
-        <div className="Search">
-          <Search>
-            <SearchIconWrapper>
-              <SearchIcon
+    <Box sx={{ flexGrow: 1 }}>
+      <AppBar
+        position="static"
+        sx={{ backgroundColor: "white", boxShadow: "none", pb: 2, pt: 1 }}
+      >
+        <Toolbar>
+          <Box sx={{ display: { xs: "none", md: "flex" } }}>
+            <Search>
+              <SearchIconWrapper>
+                <SearchIcon
+                  sx={{
+                    width: 14.32,
+                    height: 14.12,
+                    top: 48.39,
+                    left: 40.54,
+                  }}
+                />
+              </SearchIconWrapper>
+              <StyledInputBase
                 sx={{
-                  width: 14.32,
-                  height: 14.12,
-                  top: 48.39,
-                  left: 40.54,
+                  fontFamily: "roboto",
+                  fontSize: 14.12,
+                  fontWeight: 400,
+                  lineHeight: 16.55,
                 }}
+                placeholder="Search here..."
+                inputProps={{ "aria-label": "search" }}
               />
-            </SearchIconWrapper>
-            <StyledInputBase
+            </Search>
+          </Box>
+          <IconButton sx={{ display: { xs: "flex", md: "none" } }}>
+            <img src={MenuIconImg}></img>
+          </IconButton>
+          <Card sx={{ ml: "auto", boxShadow: "none" }}>
+            <CardMedia
+              component="img"
+              image={logo}
+              alt="logo"
               sx={{
-                fontFamily: "roboto",
-                fontSize: 14.12,
-                fontWeight: 400,
-                lineHeight: 16.55,
+                width: isMd ? "284.65px" : isXs ? "126.72px" : "222.07px",
+                height: isMd ? "76.23px" : isXs ? "33.94px" : "59.47px",
+                top: isMd ? "12px" : isXs ? "7.42px" : "300px",
+                left: isMd ? "583.25px" : isXs ? "134.05px" : "611.18px",
+                height: "auto",
               }}
-              placeholder="Search here..."
-              inputProps={{ "aria-label": "search" }}
-            />
-          </Search>
-        </div>
-
-        {/* <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="open drawer"
-            sx={{ mr: 2 }}
+            ></CardMedia>
+          </Card>
+          <Box
+            className="subscribeAndSignIn"
+            sx={{ display: { xs: "none", md: "flex" }, ml: "auto" }}
           >
-            <MenuIcon />
-          </IconButton> */}
-        {/* <Typography
-            variant="h6"
-            noWrap
-            component="div"
-            sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
-          >
-            MUI
-          </Typography> */}
-
-        <div className="Logo">
-          <img className="indiaRetailLogo" src={logo}></img>
-        </div>
-        <div className="subscribeAndSignIn">
-          <Button
-            sx={{
-              backgroundColor: "#E21B22",
-              width: 87.97,
-              fontFamily: "roboto",
-              fontSize: 10.67,
-              fontWeight: 700,
-              alignItems: "center",
-            }}
-            variant="filled"
-          >
-            subscribe
-          </Button>
-          <Button
-            sx={{
-              color: "#0A0A0A",
-              fontFamily: "roboto",
-              fontSize: 10.67,
-              fontWeight: 700,
-              alignItems: "center",
-            }}
-            variant="filled"
-          >
-            sign in
-          </Button>
-        </div>
-      </div>
-      {/* </Toolbar> */}
-    </AppBar>
-    // </Box>
+            <Button
+              sx={{
+                backgroundColor: "#E21B22",
+                width: 87.97,
+                fontFamily: "roboto",
+                fontSize: 10.67,
+                fontWeight: 700,
+                alignItems: "center",
+              }}
+              variant="filled"
+            >
+              subscribe
+            </Button>
+            <Button
+              sx={{
+                color: "#0A0A0A",
+                fontFamily: "roboto",
+                fontSize: 10.67,
+                fontWeight: 700,
+                alignItems: "center",
+              }}
+              variant="filled"
+            >
+              sign in
+            </Button>
+          </Box>
+          <IconButton sx={{ display: { xs: "block", md: "none" }, ml: "auto" }}>
+            <img src={MobViewSearchImg}></img>
+          </IconButton>
+        </Toolbar>
+      </AppBar>
+    </Box>
   );
 }

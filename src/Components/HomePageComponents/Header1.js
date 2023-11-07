@@ -1,5 +1,4 @@
 import React from "react";
-import "./styles.css";
 import img1 from "../../Images/image 43.png";
 import img2 from "../../Images/Link ⏵ news4.jpg.png";
 import img3 from "../../Images/Link ⏵ news4.jpg (1).png";
@@ -7,9 +6,12 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-import { Box, CardActionArea } from "@mui/material";
+import { Box } from "@mui/material";
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 const Header1 = () => {
+  const isMd = useMediaQuery("(min-width:600px)");
+  const isXs = useMediaQuery("(max-width:599px)");
   const CardData = [
     {
       id: 1,
@@ -31,39 +33,75 @@ const Header1 = () => {
     },
   ];
   return (
-    <div className="Header1">
-      <div className="Header1A">
+    <Box
+      sx={{
+        display: "flex",
+        width: "100%", // Full width
+        // height: 160.43,
+        // width: isMd ? "1447" : isXs ? "399px" : "1447",
+        height: isMd ? "160.43px" : isXs ? "101px" : "160.43px",
+        top: isMd ? "222.79px" : isXs ? "87px" : "222.79px",
+        backgroundColor: "#F8F9FA",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+    >
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "row",
+          gap: "1rem",
+          width: isMd ? "1322.81px" : isXs ? "380px" : "1322.81px",
+          height: isMd ? "127.34px" : isXs ? "80px" : "127.34px",
+          top: isMd ? "239.33px" : isXs ? "97.5px" : "239.33px",
+          left: isMd ? "964.21px" : isXs ? "16.43px" : "964.21px",
+          overflowX: "auto",
+          p: 1,
+        }}
+      >
         {CardData.map((data) => (
           <Header1Card data={data} />
         ))}
-      </div>
-    </div>
+      </Box>
+    </Box>
   );
 };
 
 const Header1Card = ({ data }) => {
+  const isMd = useMediaQuery("(min-width:600px)");
+  const isXs = useMediaQuery("(max-width:599px)");
   return (
-    <div className="Header1CardDiv">
-      <Card
+    <Card
+      sx={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        minWidth: isMd ? "420.65px" : isXs ? "272.19px" : "420.65px",
+        minHeight: isMd ? "127.34px" : isXs ? "80.12px" : "127.34px",
+        top: isMd ? "239.33px" : isXs ? "-0.35px" : "239.33px",
+        left: isMd ? "964.21px" : isXs ? "-0.01px" : "964.21px",
+      }}
+    >
+      <Box
         sx={{
-          maxWidth: 410.48,
-          height: 90.67,
-          top: 257.67,
-          left: 974.12,
-          // borderRadius: 6.01,
+          minWidth: isMd ? "420.65px" : isXs ? "267.56px" : "267.56px",
+          minHeight: isMd ? "127.34px" : isXs ? "60.75px" : "60.75px",
+          top: isMd ? "239.33px" : isXs ? "-9.33px" : "-9.33px",
+          left: isMd ? "964.21px" : isXs ? "4.45px" : "4.45px",
           display: "flex",
-          flexDirection: "row",
           alignItems: "center",
         }}
       >
         <CardMedia
           component="img"
           sx={{
-            width: 117,
-            height: 96.55,
-            top: 254.72,
-            left: 68.95,
-            // borderRadius: 5.65,
+            width: isMd ? "117.04px" : isXs ? "75.73px" : "75.73px",
+            height: isMd ? "96.55px" : isXs ? "60.75px" : "60.75px",
+            top: isMd ? "254.72px" : isXs ? "9.33px" : "9.33px",
+            left: isMd ? "521.53px" : isXs ? "4.45px" : "4.45px",
+            borderRadius: isMd ? "5.65px" : isXs ? "3.66px" : "3.66px",
+            // borderRadius: "5.65px",
+            ml: "auto",
           }}
           image={data.imageSrc}
           alt="Image"
@@ -72,9 +110,8 @@ const Header1Card = ({ data }) => {
           sx={{
             display: "flex",
             flexDirection: "column",
-
             marginRight: "auto",
-            width: 251.46,
+            maxWidth: 251.46,
             height: 55.1,
             top: 275.42,
             left: 649.87,
@@ -86,7 +123,8 @@ const Header1Card = ({ data }) => {
                 color: "#E21B22",
                 fontFamily: "roboto",
                 fontWeight: 600,
-                fontSize: 14.69,
+                fontSize: isMd ? "14.69px" : isXs ? "9.5px" : "9.5px",
+                lineHeight: "21.47px",
               }}
               component="div"
             >
@@ -97,15 +135,17 @@ const Header1Card = ({ data }) => {
                 color: "#000000",
                 fontFamily: "inter",
                 fontWeight: 400,
-                fontSize: 16.27,
+                // fontSize: 16.27,
+                fontSize: isMd ? "16.27px" : isXs ? "10.53px" : "10.53px",
+                lineHeight: "20.34px",
               }}
             >
               {data.description}
             </Typography>
           </Box>
         </CardContent>
-      </Card>
-    </div>
+      </Box>
+    </Card>
   );
 };
 

@@ -1,5 +1,4 @@
 import React from "react";
-import "./styles.css";
 import MainImage from "../../Images/Link ⏵ Figure ⏵ 169731-rbmaxpyfhd-1644061237.jpg.png";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
@@ -12,6 +11,7 @@ import adsImg from "../../Images/image 41.png";
 import LatestNewsImg1 from "../../Images/image 27.png";
 import LatestNewsImg2 from "../../Images/LatestNews2.png";
 import RemoveIcon from "@mui/icons-material/Remove";
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 const Header2 = () => {
   const CardData = [
@@ -53,16 +53,32 @@ const Header2 = () => {
       title: "How AI is enhancing stores, How AI is enhancing stores",
     },
   ];
+  const isMd = useMediaQuery("(min-width:600px)");
+  const isXs = useMediaQuery("(max-width:599px)");
   return (
-    <div className="Header2">
-      <div className="Header2Div1">
+    <Box
+      sx={{
+        display: "flex",
+        flexDirection: "row",
+        flexWrap: "wrap",
+        justifyContent: "space-evenly",
+        p: 1,
+        width: "100%",
+        height: 809,
+        top: 423.23,
+        left: 36.21,
+      }}
+    >
+      <Box>
         <Card>
           <CardMedia
             sx={{
-              width: 599,
+              width: isMd ? "599px" : isXs ? "272.19px" : "420.65px",
+              // width: 599,
               height: 347,
               top: 423.23,
               left: 35.21,
+              objectFit: "cover",
               display: "flex",
               flexDirection: "column",
               justifyContent: "flex-end",
@@ -101,37 +117,46 @@ const Header2 = () => {
                   in focus
                 </Typography>
               </Button>
-              <Typography
+              <Box
                 sx={{
-                  fontFamily: "Inter",
-                  fontWeight: 700,
-                  fontSize: 21.43,
-                  color: "#ffffff",
+                  display: "flex",
+                  flexDirection: "column",
                 }}
               >
-                Rahul Gandhi In Manipur: Chopper Ride After Women Protesters
-                Surround Car
-              </Typography>
-              <Typography
-                sx={{
-                  fontFamily: "Droid Sans",
-                  fontWeight: 400,
-                  fontSize: 16.85,
-                  color: "#ffffff",
-                }}
-              >
-                Rahul Gandhi
-              </Typography>
+                <Typography
+                  sx={{
+                    fontFamily: "Inter",
+                    fontWeight: 700,
+                    fontSize: 21.43,
+                    color: "#ffffff",
+                  }}
+                >
+                  Rahul Gandhi In Manipur: Chopper Ride After Women Protesters
+                  Surround Car
+                </Typography>
+                <Typography
+                  sx={{
+                    fontFamily: "Droid Sans",
+                    fontWeight: 400,
+                    fontSize: 16.85,
+                    color: "#ffffff",
+                  }}
+                >
+                  Rahul Gandhi
+                </Typography>
+              </Box>
             </CardContent>
           </CardMedia>
         </Card>
-        <div>
+
+        <Box>
           {CardData.map((data) => (
             <Header2Card data={data} />
           ))}
-        </div>
-      </div>
-      <div className="Header2Div2">
+        </Box>
+      </Box>
+
+      <Box className="Header2Box2">
         <Typography
           sx={{
             display: "flex",
@@ -148,9 +173,9 @@ const Header2 = () => {
         {LatestNewsData.map((data) => (
           <LatestNewsCard data={data} />
         ))}
-        <div>
+        <Box>
           <Divider sx={{ paddingTop: 1 }} />
-          <div className="LatestNews2ndCardDiv">
+          <Box className="LatestNews2ndCardBox">
             <Typography
               sx={{
                 width: 304.58,
@@ -176,11 +201,11 @@ const Header2 = () => {
             >
               These companies created a lot of hype when they listed on the...
             </Typography>
-          </div>
-        </div>
-        <div>
+          </Box>
+        </Box>
+        <Box>
           <Divider sx={{ paddingTop: 1, marginTop: 1 }} />
-          <div className="LatestNews2ndCardDiv">
+          <Box className="LatestNews2ndCardBox">
             <Typography
               sx={{
                 width: 304.58,
@@ -206,23 +231,23 @@ const Header2 = () => {
             >
               These companies created a lot of hype when they listed on the...
             </Typography>
-          </div>
-        </div>
-      </div>
+          </Box>
+        </Box>
+      </Box>
 
-      <div className="Header2Div3">
+      <Box className="Header2Box3">
         <Typography sx={{ display: "flex", justifyContent: "center" }}>
           - Advertisement -
         </Typography>
         <img src={adsImg}></img>
-      </div>
-    </div>
+      </Box>
+    </Box>
   );
 };
 
 const Header2Card = ({ data }) => {
   return (
-    <div className="Header1CardDiv">
+    <Box className="Header1CardBox">
       <Card
         sx={{
           maxWidth: 410.48,
@@ -267,7 +292,7 @@ const Header2Card = ({ data }) => {
                 fontWeight: 600,
                 fontSize: 14.69,
               }}
-              component="div"
+              component="Box"
             >
               {data.title}
             </Typography>
@@ -284,13 +309,13 @@ const Header2Card = ({ data }) => {
           </Box>
         </CardContent>
       </Card>
-    </div>
+    </Box>
   );
 };
 
 const LatestNewsCard = ({ data }) => {
   return (
-    <div className="Header2CardDiv">
+    <Box className="Header2CardBox">
       <Card
         sx={{
           boxShadow: "none",
@@ -322,7 +347,7 @@ const LatestNewsCard = ({ data }) => {
           </Typography>
         </CardContent>
       </Card>
-    </div>
+    </Box>
   );
 };
 
